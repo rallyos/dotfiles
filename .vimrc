@@ -1,83 +1,73 @@
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-
-Plugin 'VundleVim/Vundle.vim'
 "Language specific
 "  Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+
 "  JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'burnettk/vim-angular'
-Plugin 'claco/jasmine.vim'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'matthewsimo/angular-vim-snippets', { 'for': 'javascript' }
+Plug 'burnettk/vim-angular', { 'for': 'javascript' }
+Plug 'claco/jasmine.vim', { 'for': 'javascript' }
+Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'html'] }
+
 " Golang
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
+
 " HTML & CSS
-Plugin 'mattn/emmet-vim'
-Plugin 'alvan/vim-closetag'
-Plugin 'Valloric/MatchTagAlways'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css']  }
+Plug 'alvan/vim-closetag', { 'for': ['html', 'css']  }
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'css']  }
 
 " Interface
-Plugin 'mhinz/vim-startify'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle'  }
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'airblade/vim-gitgutter'
 
 " Colors
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'owickstrom/vim-colors-paramount'
-Plugin 'trusktr/seti.vim'
-Plugin 'notpratheek/vim-luna'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'morhetz/gruvbox'
+Plug 'owickstrom/vim-colors-paramount'
 
 " Syntax
-Plugin 'sheerun/vim-polyglot'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'ervandew/supertab'
-" Plugin 'scrooloose/syntastic'
-Plugin 'w0rp/ale'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+Plug 'sheerun/vim-polyglot'
+Plug 'Valloric/YouCompleteMe'
+" Plug 'ervandew/supertab'
+" Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-surround' " Replace parentheses and other surrounding symbols
+Plug 'jiangmiao/auto-pairs'
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " Other
-Plugin 'wakatime/vim-wakatime'
-Plugin 'mattn/gist-vim' "Create gists super easy
-Plugin 'mileszs/ack.vim' "Search
-Plugin 'tpope/vim-fugitive' "Git in vim
-Plugin 'majutsushi/tagbar' "Visualize script structure
-Plugin 'sjl/gundo.vim' "Undo tree
-Plugin 'tpope/vim-dispatch' "Tests thing
+Plug 'wakatime/vim-wakatime'
+Plug 'mattn/gist-vim' "Create gists super easy
+Plug 'mileszs/ack.vim' "Search
+Plug 'tpope/vim-fugitive' "Git in vim
+Plug 'majutsushi/tagbar' "Visulize script structure
+Plug 'sjl/gundo.vim' "Undo tree
+Plug 'tpope/vim-dispatch' "Tests thing
+Plug 'johngrib/vim-game-code-break' "Greatest thing ever ?
 
 
+Plug 'easymotion/vim-easymotion' " TODO Test this, because you're not using it
 
-Plugin 'easymotion/vim-easymotion'
-
-
-call vundle#end()
+call plug#end()
 
 
 set nocompatible              " be iMproved, required
@@ -103,7 +93,6 @@ set smartindent
 set nowrap
 
 filetype off                  " required
-
 
 let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -135,7 +124,6 @@ let g:rspec_runner = "os_x_iterm"
 syntax on
 set laststatus=2
 set background=dark
-colorscheme gruvbox
 colorscheme paramount
 
 autocmd FileType javascript set formatprg=prettier\ --stdin
@@ -189,6 +177,10 @@ set statusline+=%#warningmsg#
 set statusline=%{ALEGetStatusLine()}
 set statusline+=%*
 
+"But what about Go?
+" set list
+" set listchars=tab:>-
+
 let g:javascript_plugin_ngdoc = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -213,6 +205,11 @@ nnoremap \ :Ag<SPACE>
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

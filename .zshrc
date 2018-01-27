@@ -5,7 +5,7 @@ export ZSH=/Users/dimitarralev/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bullet-train"
+ZSH_THEME="bullet-train" # Really cool!
 BULLETTRAIN_RUBY_SHOW=false
 BULLETTRAIN_TIME_SHOW=false
 
@@ -19,12 +19,11 @@ export locally="http://localhost"
 # HYPHEN_INSENSITIVE="true"
 
 # Add shortcuts for folders
-hash -d -- -projects=/Users/dimitarralev/Projects
-hash -d -- -influencer-client=/Users/dimitarralev/Projects/influencer-angular
-hash -d -- -influencer-api=/Users/dimitarralev/Projects/influencer-api
-hash -d -- -kalanish=/Users/dimitarralev/Projects/KallanishNew
-hash -d -- -elpBackend=/Users/dimitarralev/Projects/elpBackend
-hash -d -- -DisabledDolphin=/Users/dimitarralev/Projects/DisabledDolphin
+hash -d -- projects=/Users/dimitarralev/Projects
+hash -d -- influencer-client=/Users/dimitarralev/Projects/influencer-angular
+hash -d -- influencer-api=/Users/dimitarralev/Projects/influencer-api
+hash -d -- xkcd-server=/Users/dimitarralev/go/src/xkcd-server-thingy
+
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -92,21 +91,29 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias v="vim"
 alias zshconfig="st ~/.zshrc"
 alias psqlstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias envstart="cd env && source bin/activate && cd .."
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+alias influencer='tmuxinator start influencer'
+alias tvchat='tmuxinator start tvchat'
+
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # redefine prompt_context for hiding user@hostname
 prompt_context () { }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+export EDITOR='vim'
 export PATH=$HOME/bin:$PATH
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH="$PATH:`yarn global bin`"
+export PATH="$HOME/.fastlane/bin:$PATH"
 
 source ~/.aws_secrets.env
+source ~/tmuxinator.zsh
