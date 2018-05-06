@@ -19,6 +19,7 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'html'] }
 
 " Golang
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 
 " HTML & CSS
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']  }
@@ -32,7 +33,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle'  }
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'airblade/vim-gitgutter'
 
@@ -40,12 +40,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'owickstrom/vim-colors-paramount'
 
 " Syntax
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 " Plug 'ervandew/supertab'
 " Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides' TODO Enable?
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround' " Replace parentheses and other surrounding symbols
 Plug 'jiangmiao/auto-pairs'
@@ -56,7 +56,10 @@ Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " Other
 Plug 'wakatime/vim-wakatime'
+Plug 'haya14busa/is.vim' "Search highlighting helper
 Plug 'mattn/gist-vim' "Create gists super easy
+Plug '/usr/local/opt/fzf' "CtrlP replacement
+Plug 'junegunn/fzf.vim' "CtrlP replacement
 Plug 'mileszs/ack.vim' "Search
 Plug 'tpope/vim-fugitive' "Git in vim
 Plug 'majutsushi/tagbar' "Visulize script structure
@@ -122,9 +125,13 @@ let g:jsx_ext_required = 0
 let g:rspec_runner = "os_x_iterm"
 
 syntax on
+au BufNewFile,BufRead *.html set syntax=off
+
 set laststatus=2
 set background=dark
 colorscheme paramount
+
+set hlsearch
 
 autocmd FileType javascript set formatprg=prettier\ --stdin
 
@@ -154,9 +161,6 @@ vnoremap <c-/> :TComment<cr>
 vmap < <gv
 vmap > >gv
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 0
 set backspace=indent,eol,start
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -164,9 +168,7 @@ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' 
 exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-let g:ctrlp_custom_ignore = 'dist/'
-let g:ctrlp_path_sort = 1
-
+map <C-p> :GFiles<CR>
 map <C-i> :NERDTreeToggle<CR>
 map <C-k> :TagbarToggle<CR>
 
@@ -193,17 +195,13 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'startify']
 
 " The Silver Searcher
 if executable('ag')
+
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
 endif
 
 noremap <Up> <NOP>
@@ -233,7 +231,3 @@ call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('rb', 'Red', 'none', 'red', '#151515')
-
-"open nerdtree automatically"
-"autocmd StdinReadPre * let s:std_in=1"
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"

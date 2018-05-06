@@ -92,10 +92,13 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias v="vim"
-alias zshconfig="st ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias psqlstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias envstart="cd env && source bin/activate && cd .."
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+alias docker_clear='docker rmi $(docker images -q) && docker rm $(docker ps -a -q)'
 
 alias influencer='tmuxinator start influencer'
 alias tvchat='tmuxinator start tvchat'
@@ -117,3 +120,9 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 source ~/.aws_secrets.env
 source ~/tmuxinator.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -l'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
