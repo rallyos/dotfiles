@@ -1,0 +1,49 @@
+# ~/.tmuxinator/influencer.yml
+
+name: influencer
+root: ~/Projects/influencer-api
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t influencer
+
+windows:
+    - front:
+        root: ~/Projects/influencer-data-collector/
+        panes:
+            - vim
+
+    - back:
+        root: ~/Projects/influencer-api
+        panes:
+            - vim
+
+    - server:
+        layout: 1539,204x51,0,0[204x42,0,0{102x42,0,0,2,101x42,103,0,5},204x8,0,43,3]
+        panes:
+            - docker-compose run --rm --service-ports web
+            - ctop
+            - cd ../influencer-angular && yarn run local
