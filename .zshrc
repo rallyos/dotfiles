@@ -98,9 +98,11 @@ alias reload="source ~/.zshrc"
 alias psqlstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias envstart="cd env && source bin/activate && cd .."
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-alias docker_clear='docker rmi $(docker images -q) && docker rm $(docker ps -a -q)'
+alias docker_clear='docker container prune && docker rmi $(docker images -q) && docker rm $(docker ps -a -q)'
+alias gohome='cd ~/go/src'
 
 alias influencer='tmuxinator start influencer'
+alias base='tmuxinator start base'
 alias tvchat='tmuxinator start tvchat'
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -119,6 +121,7 @@ export PATH="$PATH:`yarn global bin`"
 export PATH="$HOME/.fastlane/bin:$PATH"
 
 source ~/.aws_secrets.env
+source ~/.s.env
 source ~/tmuxinator.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -126,3 +129,5 @@ source ~/tmuxinator.zsh
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -l'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+peek() { tmux split-window -p 33 "$EDITOR" "$@" || exit; }
