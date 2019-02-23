@@ -102,8 +102,8 @@ alias docker_clear='docker container prune && docker rmi $(docker images -q) && 
 alias gohome='cd ~/go/src'
 
 alias influencer='tmuxinator start influencer'
+alias home='tmuxinator start home'
 alias base='tmuxinator start base'
-alias tvchat='tmuxinator start tvchat'
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # redefine prompt_context for hiding user@hostname
