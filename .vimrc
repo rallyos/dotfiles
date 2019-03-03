@@ -80,7 +80,6 @@ set nowrap
 set hlsearch
 set backspace=indent,eol,start
 
-syntax on
 au BufNewFile,BufRead *.html set syntax=off
 
 nnoremap ; :
@@ -119,6 +118,8 @@ autocmd Filetype json setlocal ts=4 sts=4 sw=4
 autocmd Filetype go setlocal ts=4 sts=4 sw=4
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 filetype off
+
+syntax on
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<c-x>"
