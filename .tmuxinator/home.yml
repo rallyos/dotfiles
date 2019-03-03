@@ -39,7 +39,7 @@ windows:
     - general:
         layout: 34d8,204x51,0,0[204x34,0,0{102x34,0,0,1,101x34,103,0,2},204x16,0,35{102x16,0,35,3,101x16,103,35,4}]
         panes:
-            - tldr docker
+            - hugo server --theme=gravity-assist --buildDrafts
             - ctop
             - git pull && tig
             - buku
