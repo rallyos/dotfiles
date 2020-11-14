@@ -1,5 +1,5 @@
-name: base
-root: ~/code/base
+name: moody-tags
+root: ~/code/moody_tags_client
 
 # Optional tmux socket
 # socket_name: foo
@@ -34,9 +34,9 @@ windows:
             - vim
 
     - general:
-        layout: 25b2,204x51,0,0[204x27,0,0{102x27,0,0,13,101x27,103,0,14},204x23,0,28{102x23,0,28,15,101x23,103,28,16}]]
+        layout: 34d8,204x51,0,0[204x34,0,0{102x34,0,0,1,101x34,103,0,2},204x16,0,35{102x16,0,35,3,101x16,103,35,4}]
         panes:
-            - docker-compose run --service-ports web
-            - docker-compose run test
+            - npm run serve
             - fortune | cowsay -f tux
+            - git pull && tig
             - ctop

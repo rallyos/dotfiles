@@ -1,7 +1,7 @@
-# ~/.tmuxinator/influencer.yml
+# ~/.tmuxinator/base.yml
 
 name: base
-root: ~/Projects/dimitarralev/
+root: ~/code/shiftingphotons/
 
 # Optional tmux socket
 # socket_name: foo

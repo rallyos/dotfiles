@@ -1,5 +1,5 @@
-name: base
-root: ~/code/base
+name: moody-tags
+root: ~/code/moody_tags_api
 
 # Optional tmux socket
 # socket_name: foo

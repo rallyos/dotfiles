@@ -1,5 +1,5 @@
-name: base
-root: ~/code/base
+name: subalogue
+root: ~/go/src/github.com/dmralev/subalogue
 
 # Optional tmux socket
 # socket_name: foo
@@ -37,6 +37,6 @@ windows:
         layout: 25b2,204x51,0,0[204x27,0,0{102x27,0,0,13,101x27,103,0,14},204x23,0,28{102x23,0,28,15,101x23,103,28,16}]]
         panes:
             - docker-compose run --service-ports web
-            - docker-compose run test
+            - time
             - fortune | cowsay -f tux
             - ctop

@@ -1,5 +1,7 @@
+# ~/.tmuxinator/base.yml
+
 name: base
-root: ~/code/base
+root: ~/go/src/github.com/dmralev/scaff
 
 # Optional tmux socket
 # socket_name: foo
@@ -26,7 +28,7 @@ startup_window: editor
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t influencer
+# post: tmux -CC attach -t base
 
 windows:
     - editor:
@@ -34,9 +36,8 @@ windows:
             - vim
 
     - general:
-        layout: 25b2,204x51,0,0[204x27,0,0{102x27,0,0,13,101x27,103,0,14},204x23,0,28{102x23,0,28,15,101x23,103,28,16}]]
+        layout: 34d8,204x51,0,0[204x34,0,0{102x34,0,0,1,101x34,103,0,2},204x16,0,35{102x16,0,35,3,101x16,103,35,4}]
         panes:
-            - docker-compose run --service-ports web
-            - docker-compose run test
-            - fortune | cowsay -f tux
-            - ctop
+            - tldr docker
+            - ctop -a
+            - git pull && tig
