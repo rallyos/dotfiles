@@ -1,5 +1,5 @@
 name: subalogue
-root: ~/go/src/github.com/dmralev/subalogue
+root: ~/code/subalogue
 
 # Optional tmux socket
 # socket_name: foo

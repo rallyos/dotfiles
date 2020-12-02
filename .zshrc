@@ -52,8 +52,8 @@ alias home='tmuxinator start home'
 alias base='tmuxinator start base'
 alias scaffcode='tmuxinator start scaff'
 alias lounge='tmuxinator start lofi-lounge'
-alias moodytags='tmuxinator start moody-tags-api'
-alias moodytags-client='tmuxinator start moody-tags-client'
+alias moodytags='tmuxinator start moodytags'
+alias moodytags-client='tmuxinator start moodytags-client'
 alias subalogue='tmuxinator start subalogue'
 
 # redefine prompt_context for hiding user@hostname
