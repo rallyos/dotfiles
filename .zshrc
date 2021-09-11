@@ -55,6 +55,7 @@ alias lounge='tmuxinator start lofi-lounge'
 alias moodytags='tmuxinator start moodytags'
 alias moodytags-client='tmuxinator start moodytags-client'
 alias subalogue='tmuxinator start subalogue'
+alias kotaicode-dtermdb='tmuxinator start kotaicode-dtermdb'
 
 # redefine prompt_context for hiding user@hostname
 prompt_context () { }

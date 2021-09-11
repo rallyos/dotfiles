@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'myusuf3/numbers.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
-Plug 'shiftingphotons/vim-colors-paramount'
+Plug 'morhetz/gruvbox'
 Plug 'rainglow/vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
@@ -35,6 +35,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css']  }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'css']  }
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'css']  }
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 " Distaction free writing
 Plug 'junegunn/goyo.vim'
 
@@ -46,6 +49,9 @@ Plug 'Valloric/YouCompleteMe'
 
 "Lint
 Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'yaml', 'html', 'md'] }
 
 " Tests
 Plug 'tpope/vim-dispatch' "Tests runner TODO Try
@@ -71,7 +77,7 @@ call plug#end()
 " UI
 set encoding=utf8
 set background=dark
-colorscheme paramount
+colorscheme gruvbox
 set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline\ Nerd\ Font\ Complete:h12
 
 set nocompatible              " be iMproved, required
@@ -85,6 +91,13 @@ set backspace=indent,eol,start
 au BufNewFile,BufRead *.html set syntax=off
 
 nnoremap ; :
+
+" Prettier
+nmap <Leader>pr <Plug>(Prettier)
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#exec_cmd_async = 1
+let g:prettier#config#config_precedence = 'prefer-file'
 
 " Habit making
 noremap <Up> <NOP>
