@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   })
 
+  use("https://github.com/github/copilot.vim")
+
   use({
       'nvim-treesitter/nvim-treesitter',
       run = function()
@@ -23,10 +25,12 @@ return require('packer').startup(function(use)
 
   use('nvim-treesitter/nvim-treesitter-context')
 
+  use("mbbill/undotree")
 
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use('hrsh7th/cmp-path')
   use("hrsh7th/nvim-cmp")
+  use("L3MON4D3/LuaSnip")
 end)
