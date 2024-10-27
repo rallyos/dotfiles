@@ -7,9 +7,11 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use('wbthomason/packer.nvim')
   use('arcticicestudio/nord-vim')
+  use('NLKNguyen/papercolor-theme')
+  use('pappasam/papercolor-theme-slim')
 
   use({
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      'nvim-telescope/telescope.nvim', tag = '0.1.4',
       requires = { {'nvim-lua/plenary.nvim'} }
   })
 
