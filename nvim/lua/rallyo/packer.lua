@@ -7,8 +7,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use('wbthomason/packer.nvim')
   use('arcticicestudio/nord-vim')
-  use('NLKNguyen/papercolor-theme')
-  use('pappasam/papercolor-theme-slim')
 
   use({
       'nvim-telescope/telescope.nvim', tag = '0.1.4',
@@ -35,4 +33,9 @@ return require('packer').startup(function(use)
   use('hrsh7th/cmp-path')
   use("hrsh7th/nvim-cmp")
   use("L3MON4D3/LuaSnip")
+
+  use({
+    "coder/claudecode.nvim",
+    requires = { "folke/snacks.nvim" },
+  })
 end)
